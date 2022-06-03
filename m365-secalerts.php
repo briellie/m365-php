@@ -21,8 +21,8 @@ $accessToken = $token->access_token;
 
 $graph = new Graph();
         $graph->setAccessToken($accessToken);
-		$user = $graph->createRequest("GET", "/groups")
-					->setReturnType(Model\groups::class)
+		$user = $graph->createRequest("GET", "/security/alerts")
+					->setReturnType(Model\Security::class)
 					->execute();
 		print_r($user);
 
