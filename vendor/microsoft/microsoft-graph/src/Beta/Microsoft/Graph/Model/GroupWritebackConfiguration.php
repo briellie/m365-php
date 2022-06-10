@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* DelegatedAdminRelationshipParticipant File
+* GroupWritebackConfiguration File
 * PHP version 7
 *
 * @category  Library
@@ -13,7 +13,7 @@
 */
 namespace Beta\Microsoft\Graph\Model;
 /**
-* DelegatedAdminRelationshipParticipant class
+* GroupWritebackConfiguration class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -21,32 +21,32 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class DelegatedAdminRelationshipParticipant extends Entity
+class GroupWritebackConfiguration extends WritebackConfiguration
 {
     /**
-    * Gets the tenantId
+    * Gets the onPremisesGroupType
     *
-    * @return string|null The tenantId
+    * @return string|null The onPremisesGroupType
     */
-    public function getTenantId()
+    public function getOnPremisesGroupType()
     {
-        if (array_key_exists("tenantId", $this->_propDict)) {
-            return $this->_propDict["tenantId"];
+        if (array_key_exists("onPremisesGroupType", $this->_propDict)) {
+            return $this->_propDict["onPremisesGroupType"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the tenantId
+    * Sets the onPremisesGroupType
     *
-    * @param string $val The value of the tenantId
+    * @param string $val The value of the onPremisesGroupType
     *
-    * @return DelegatedAdminRelationshipParticipant
+    * @return GroupWritebackConfiguration
     */
-    public function setTenantId($val)
+    public function setOnPremisesGroupType($val)
     {
-        $this->_propDict["tenantId"] = $val;
+        $this->_propDict["onPremisesGroupType"] = $val;
         return $this;
     }
 }
