@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'fbf2d2fef3cb884ff5bd4569fd096d7582e3d8e3',
+        'reference' => '75eed2affaaf8cdc40f9897b0b381e4fb11d306d',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'fbf2d2fef3cb884ff5bd4569fd096d7582e3d8e3',
+            'reference' => '75eed2affaaf8cdc40f9897b0b381e4fb11d306d',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
@@ -110,8 +110,8 @@
             'dev_requirement' => false,
         ),
         'symfony/deprecation-contracts' => array(
-            'pretty_version' => 'v2.5.1',
-            'version' => '2.5.1.0',
+            'pretty_version' => 'v2.5.2',
+            'version' => '2.5.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/deprecation-contracts',
             'aliases' => array(),
