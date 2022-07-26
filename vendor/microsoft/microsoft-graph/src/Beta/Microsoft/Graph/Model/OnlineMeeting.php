@@ -210,6 +210,34 @@ class OnlineMeeting extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the anonymizeIdentityForRoles
+     *
+     * @return array|null The anonymizeIdentityForRoles
+     */
+    public function getAnonymizeIdentityForRoles()
+    {
+        if (array_key_exists("anonymizeIdentityForRoles", $this->_propDict)) {
+           return $this->_propDict["anonymizeIdentityForRoles"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the anonymizeIdentityForRoles
+    *
+    * @param OnlineMeetingRole[] $val The anonymizeIdentityForRoles
+    *
+    * @return OnlineMeeting
+    */
+    public function setAnonymizeIdentityForRoles($val)
+    {
+        $this->_propDict["anonymizeIdentityForRoles"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the attendeeReport
     * The content stream of the attendee report of a Teams live event. Read-only.
@@ -558,6 +586,7 @@ class OnlineMeeting extends Entity
 
     /**
     * Gets the joinMeetingIdSettings
+    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
     *
     * @return JoinMeetingIdSettings|null The joinMeetingIdSettings
     */
@@ -576,6 +605,7 @@ class OnlineMeeting extends Entity
 
     /**
     * Sets the joinMeetingIdSettings
+    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
     *
     * @param JoinMeetingIdSettings $val The joinMeetingIdSettings
     *

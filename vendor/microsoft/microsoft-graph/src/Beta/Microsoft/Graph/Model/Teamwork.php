@@ -57,6 +57,7 @@ class Teamwork extends Entity
 
      /**
      * Gets the deletedTeams
+    * A collection of deleted teams.
      *
      * @return array|null The deletedTeams
      */
@@ -71,6 +72,7 @@ class Teamwork extends Entity
 
     /**
     * Sets the deletedTeams
+    * A collection of deleted teams.
     *
     * @param DeletedTeam[] $val The deletedTeams
     *
@@ -114,6 +116,7 @@ class Teamwork extends Entity
 
     /**
     * Gets the teamsAppSettings
+    * Represents tenant-wide settings for all Teams apps in the tenant.
     *
     * @return TeamsAppSettings|null The teamsAppSettings
     */
@@ -132,6 +135,7 @@ class Teamwork extends Entity
 
     /**
     * Sets the teamsAppSettings
+    * Represents tenant-wide settings for all Teams apps in the tenant.
     *
     * @param TeamsAppSettings $val The teamsAppSettings
     *

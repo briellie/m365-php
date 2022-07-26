@@ -59,7 +59,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the bodyLastModifiedDateTime
-    * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+    * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
     *
     * @return \DateTime|null The bodyLastModifiedDateTime
     */
@@ -78,7 +78,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the bodyLastModifiedDateTime
-    * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+    * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
     *
     * @param \DateTime $val The bodyLastModifiedDateTime
     *
@@ -220,6 +220,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the hasAttachments
+    * Indicates whether the task has attachments.
     *
     * @return bool|null The hasAttachments
     */
@@ -234,6 +235,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the hasAttachments
+    * Indicates whether the task has attachments.
     *
     * @param bool $val The hasAttachments
     *
@@ -407,6 +409,39 @@ class TodoTask extends Entity
     }
 
     /**
+    * Gets the startDateTime
+    * The date in the specified time zone at which the task is scheduled to start.
+    *
+    * @return DateTimeTimeZone|null The startDateTime
+    */
+    public function getStartDateTime()
+    {
+        if (array_key_exists("startDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["startDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["startDateTime"])) {
+                return $this->_propDict["startDateTime"];
+            } else {
+                $this->_propDict["startDateTime"] = new DateTimeTimeZone($this->_propDict["startDateTime"]);
+                return $this->_propDict["startDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the startDateTime
+    * The date in the specified time zone at which the task is scheduled to start.
+    *
+    * @param DateTimeTimeZone $val The startDateTime
+    *
+    * @return TodoTask
+    */
+    public function setStartDateTime($val)
+    {
+        $this->_propDict["startDateTime"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the status
     * Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
     *
@@ -471,6 +506,7 @@ class TodoTask extends Entity
 
      /**
      * Gets the attachments
+    * A collection of file attachments for the task.
      *
      * @return array|null The attachments
      */
@@ -485,6 +521,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the attachments
+    * A collection of file attachments for the task.
     *
     * @param AttachmentBase[] $val The attachments
     *

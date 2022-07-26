@@ -26,6 +26,36 @@ class Authentication extends Entity
 {
 
      /**
+     * Gets the emailMethods
+    * Represents the email addresses registered to a user for authentication.
+     *
+     * @return array|null The emailMethods
+     */
+    public function getEmailMethods()
+    {
+        if (array_key_exists("emailMethods", $this->_propDict)) {
+           return $this->_propDict["emailMethods"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the emailMethods
+    * Represents the email addresses registered to a user for authentication.
+    *
+    * @param EmailAuthenticationMethod[] $val The emailMethods
+    *
+    * @return Authentication
+    */
+    public function setEmailMethods($val)
+    {
+        $this->_propDict["emailMethods"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the fido2Methods
     * Represents the FIDO2 security keys registered to a user for authentication.
      *
@@ -111,6 +141,122 @@ class Authentication extends Entity
     public function setMicrosoftAuthenticatorMethods($val)
     {
         $this->_propDict["microsoftAuthenticatorMethods"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the operations
+     *
+     * @return array|null The operations
+     */
+    public function getOperations()
+    {
+        if (array_key_exists("operations", $this->_propDict)) {
+           return $this->_propDict["operations"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the operations
+    *
+    * @param LongRunningOperation[] $val The operations
+    *
+    * @return Authentication
+    */
+    public function setOperations($val)
+    {
+        $this->_propDict["operations"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the passwordMethods
+    * Represents the details of the password authentication method registered to a user for authentication.
+     *
+     * @return array|null The passwordMethods
+     */
+    public function getPasswordMethods()
+    {
+        if (array_key_exists("passwordMethods", $this->_propDict)) {
+           return $this->_propDict["passwordMethods"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the passwordMethods
+    * Represents the details of the password authentication method registered to a user for authentication.
+    *
+    * @param PasswordAuthenticationMethod[] $val The passwordMethods
+    *
+    * @return Authentication
+    */
+    public function setPasswordMethods($val)
+    {
+        $this->_propDict["passwordMethods"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the phoneMethods
+    * Represents the phone registered to a user for authentication.
+     *
+     * @return array|null The phoneMethods
+     */
+    public function getPhoneMethods()
+    {
+        if (array_key_exists("phoneMethods", $this->_propDict)) {
+           return $this->_propDict["phoneMethods"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the phoneMethods
+    * Represents the phone registered to a user for authentication.
+    *
+    * @param PhoneAuthenticationMethod[] $val The phoneMethods
+    *
+    * @return Authentication
+    */
+    public function setPhoneMethods($val)
+    {
+        $this->_propDict["phoneMethods"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the softwareOathMethods
+     *
+     * @return array|null The softwareOathMethods
+     */
+    public function getSoftwareOathMethods()
+    {
+        if (array_key_exists("softwareOathMethods", $this->_propDict)) {
+           return $this->_propDict["softwareOathMethods"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the softwareOathMethods
+    *
+    * @param SoftwareOathAuthenticationMethod[] $val The softwareOathMethods
+    *
+    * @return Authentication
+    */
+    public function setSoftwareOathMethods($val)
+    {
+        $this->_propDict["softwareOathMethods"] = $val;
         return $this;
     }
 
