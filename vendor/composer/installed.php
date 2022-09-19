@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b14cdaeaa0d5b54c6f00ec27f4f0fb99a3da8cb4',
+        'reference' => 'ce812b88d43d2329cab304d7f25f91b2cef8515f',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b14cdaeaa0d5b54c6f00ec27f4f0fb99a3da8cb4',
+            'reference' => 'ce812b88d43d2329cab304d7f25f91b2cef8515f',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
@@ -47,12 +47,12 @@
             'dev_requirement' => false,
         ),
         'microsoft/microsoft-graph' => array(
-            'pretty_version' => '1.73.0',
-            'version' => '1.73.0.0',
+            'pretty_version' => '1.75.0',
+            'version' => '1.75.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../microsoft/microsoft-graph',
             'aliases' => array(),
-            'reference' => 'a867c548899436d5279d191d5163a831ac9ea672',
+            'reference' => 'e14d68d8e78f217ab0c303169c389c4ebf5d9e11',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(

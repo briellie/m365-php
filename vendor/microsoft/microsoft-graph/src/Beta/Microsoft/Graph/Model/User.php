@@ -177,6 +177,7 @@ class User extends DirectoryObject
 
     /**
     * Gets the authorizationInfo
+    * Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can be used to store identifiers for smartcard-based certificates that a user uses for access to on-premises Active Directory deployments or for federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
     *
     * @return AuthorizationInfo|null The authorizationInfo
     */
@@ -195,6 +196,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the authorizationInfo
+    * Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can be used to store identifiers for smartcard-based certificates that a user uses for access to on-premises Active Directory deployments or for federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
     *
     * @param AuthorizationInfo $val The authorizationInfo
     *
@@ -591,6 +593,39 @@ class User extends DirectoryObject
     public function setEmployeeId($val)
     {
         $this->_propDict["employeeId"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the employeeLeaveDateTime
+    * The date and time when the user left or will leave the organization. Read: Requires User-LifeCycleInfo.Read.All. For delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Admin.  Write: Requires User-LifeCycleInfo.ReadWrite.All. For delegated scenarios, the admin needs the Global Administrator Azure AD role. Supports $filter (eq, ne, not , ge, le, in).
+    *
+    * @return \DateTime|null The employeeLeaveDateTime
+    */
+    public function getEmployeeLeaveDateTime()
+    {
+        if (array_key_exists("employeeLeaveDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["employeeLeaveDateTime"], "\DateTime") || is_null($this->_propDict["employeeLeaveDateTime"])) {
+                return $this->_propDict["employeeLeaveDateTime"];
+            } else {
+                $this->_propDict["employeeLeaveDateTime"] = new \DateTime($this->_propDict["employeeLeaveDateTime"]);
+                return $this->_propDict["employeeLeaveDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the employeeLeaveDateTime
+    * The date and time when the user left or will leave the organization. Read: Requires User-LifeCycleInfo.Read.All. For delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Admin.  Write: Requires User-LifeCycleInfo.ReadWrite.All. For delegated scenarios, the admin needs the Global Administrator Azure AD role. Supports $filter (eq, ne, not , ge, le, in).
+    *
+    * @param \DateTime $val The employeeLeaveDateTime
+    *
+    * @return User
+    */
+    public function setEmployeeLeaveDateTime($val)
+    {
+        $this->_propDict["employeeLeaveDateTime"] = $val;
         return $this;
     }
 
@@ -2500,6 +2535,34 @@ class User extends DirectoryObject
 
 
      /**
+     * Gets the appRoleAssignedResources
+     *
+     * @return array|null The appRoleAssignedResources
+     */
+    public function getAppRoleAssignedResources()
+    {
+        if (array_key_exists("appRoleAssignedResources", $this->_propDict)) {
+           return $this->_propDict["appRoleAssignedResources"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the appRoleAssignedResources
+    *
+    * @param ServicePrincipal[] $val The appRoleAssignedResources
+    *
+    * @return User
+    */
+    public function setAppRoleAssignedResources($val)
+    {
+        $this->_propDict["appRoleAssignedResources"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the appRoleAssignments
     * Represents the app roles a user has been granted for an application. Supports $expand.
      *
@@ -2591,7 +2654,6 @@ class User extends DirectoryObject
 
      /**
      * Gets the licenseDetails
-    * A collection of this user's license details. Read-only.
      *
      * @return array|null The licenseDetails
      */
@@ -2606,7 +2668,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the licenseDetails
-    * A collection of this user's license details. Read-only.
     *
     * @param LicenseDetails[] $val The licenseDetails
     *
@@ -4015,7 +4076,6 @@ class User extends DirectoryObject
 
      /**
      * Gets the activities
-    * The user's activities across devices. Read-only. Nullable.
      *
      * @return array|null The activities
      */
@@ -4030,7 +4090,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the activities
-    * The user's activities across devices. Read-only. Nullable.
     *
     * @param UserActivity[] $val The activities
     *
@@ -4131,7 +4190,6 @@ class User extends DirectoryObject
 
     /**
     * Gets the authentication
-    * The authentication methods that are supported for the user.
     *
     * @return Authentication|null The authentication
     */
@@ -4150,7 +4208,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the authentication
-    * The authentication methods that are supported for the user.
     *
     * @param Authentication $val The authentication
     *
