@@ -83,31 +83,31 @@ class LearningContent extends Entity
     }
 
     /**
-    * Gets the contributor
-    * The author, creator, or contributor of the learning content. Optional.
+    * Gets the contributors
+    * The authors, creators, or contributors of the learning content. Optional.
     *
-    * @return string|null The contributor
+    * @return string|null The contributors
     */
-    public function getContributor()
+    public function getContributors()
     {
-        if (array_key_exists("contributor", $this->_propDict)) {
-            return $this->_propDict["contributor"];
+        if (array_key_exists("contributors", $this->_propDict)) {
+            return $this->_propDict["contributors"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the contributor
-    * The author, creator, or contributor of the learning content. Optional.
+    * Sets the contributors
+    * The authors, creators, or contributors of the learning content. Optional.
     *
-    * @param string $val The contributor
+    * @param string $val The contributors
     *
     * @return LearningContent
     */
-    public function setContributor($val)
+    public function setContributors($val)
     {
-        $this->_propDict["contributor"] = $val;
+        $this->_propDict["contributors"] = $val;
         return $this;
     }
 

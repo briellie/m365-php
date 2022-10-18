@@ -53,6 +53,33 @@ class BookingAppointment extends Entity
         return $this;
     }
 
+    /**
+    * Gets the anonymousJoinWebUrl
+    *
+    * @return string|null The anonymousJoinWebUrl
+    */
+    public function getAnonymousJoinWebUrl()
+    {
+        if (array_key_exists("anonymousJoinWebUrl", $this->_propDict)) {
+            return $this->_propDict["anonymousJoinWebUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the anonymousJoinWebUrl
+    *
+    * @param string $val The anonymousJoinWebUrl
+    *
+    * @return BookingAppointment
+    */
+    public function setAnonymousJoinWebUrl($val)
+    {
+        $this->_propDict["anonymousJoinWebUrl"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the customers
