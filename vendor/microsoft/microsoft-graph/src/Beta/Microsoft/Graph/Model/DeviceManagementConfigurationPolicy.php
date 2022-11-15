@@ -276,7 +276,7 @@ class DeviceManagementConfigurationPolicy extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -291,7 +291,7 @@ class DeviceManagementConfigurationPolicy extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return DeviceManagementConfigurationPolicy
     */
@@ -332,7 +332,7 @@ class DeviceManagementConfigurationPolicy extends Entity
 
     /**
     * Gets the technologies
-    * Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, enrollment, unknownFutureValue.
+    * Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, enrollment, endpointPrivilegeManagement, unknownFutureValue.
     *
     * @return DeviceManagementConfigurationTechnologies|null The technologies
     */
@@ -351,7 +351,7 @@ class DeviceManagementConfigurationPolicy extends Entity
 
     /**
     * Sets the technologies
-    * Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, enrollment, unknownFutureValue.
+    * Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, enrollment, endpointPrivilegeManagement, unknownFutureValue.
     *
     * @param DeviceManagementConfigurationTechnologies $val The technologies
     *

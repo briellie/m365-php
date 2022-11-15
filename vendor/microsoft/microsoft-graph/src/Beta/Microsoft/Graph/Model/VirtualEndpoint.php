@@ -302,6 +302,7 @@ class VirtualEndpoint extends Entity
 
     /**
     * Gets the reports
+    * Cloud PC related reports.
     *
     * @return CloudPcReports|null The reports
     */
@@ -320,6 +321,7 @@ class VirtualEndpoint extends Entity
 
     /**
     * Sets the reports
+    * Cloud PC related reports.
     *
     * @param CloudPcReports $val The reports
     *
@@ -358,6 +360,34 @@ class VirtualEndpoint extends Entity
     public function setServicePlans($val)
     {
         $this->_propDict["servicePlans"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the sharedUseServicePlans
+     *
+     * @return array|null The sharedUseServicePlans
+     */
+    public function getSharedUseServicePlans()
+    {
+        if (array_key_exists("sharedUseServicePlans", $this->_propDict)) {
+           return $this->_propDict["sharedUseServicePlans"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sharedUseServicePlans
+    *
+    * @param CloudPcSharedUseServicePlan[] $val The sharedUseServicePlans
+    *
+    * @return VirtualEndpoint
+    */
+    public function setSharedUseServicePlans($val)
+    {
+        $this->_propDict["sharedUseServicePlans"] = $val;
         return $this;
     }
 

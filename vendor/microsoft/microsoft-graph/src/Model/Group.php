@@ -241,7 +241,7 @@ class Group extends DirectoryObject
     * Gets the groupTypes
     * Specifies the group type and its membership. If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. Returned by default. Supports $filter (eq, not).
     *
-    * @return string|null The groupTypes
+    * @return array|null The groupTypes
     */
     public function getGroupTypes()
     {
@@ -256,7 +256,7 @@ class Group extends DirectoryObject
     * Sets the groupTypes
     * Specifies the group type and its membership. If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. Returned by default. Supports $filter (eq, not).
     *
-    * @param string $val The groupTypes
+    * @param string[] $val The groupTypes
     *
     * @return Group
     */
@@ -417,7 +417,7 @@ class Group extends DirectoryObject
 
     /**
     * Gets the mailNickname
-    * The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . &amp;lt;&amp;gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : &amp;lt;&amp;gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
     *
     * @return string|null The mailNickname
     */
@@ -432,7 +432,7 @@ class Group extends DirectoryObject
 
     /**
     * Sets the mailNickname
-    * The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . &amp;lt;&amp;gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : &amp;lt;&amp;gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
     *
     * @param string $val The mailNickname
     *
@@ -768,7 +768,7 @@ class Group extends DirectoryObject
     * Gets the proxyAddresses
     * Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).
     *
-    * @return string|null The proxyAddresses
+    * @return array|null The proxyAddresses
     */
     public function getProxyAddresses()
     {
@@ -783,7 +783,7 @@ class Group extends DirectoryObject
     * Sets the proxyAddresses
     * Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).
     *
-    * @param string $val The proxyAddresses
+    * @param string[] $val The proxyAddresses
     *
     * @return Group
     */
