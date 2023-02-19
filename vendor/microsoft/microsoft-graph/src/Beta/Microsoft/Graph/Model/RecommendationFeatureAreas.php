@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* EquivalentContentOption File
+* RecommendationFeatureAreas File
 * PHP version 7
 *
 * @category  Library
@@ -11,12 +11,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace Beta\Microsoft\Graph\Model;
 
 use Microsoft\Graph\Core\Enum;
 
 /**
-* EquivalentContentOption class
+* RecommendationFeatureAreas class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -24,12 +24,17 @@ use Microsoft\Graph\Core\Enum;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class EquivalentContentOption extends Enum
+class RecommendationFeatureAreas extends Enum
 {
     /**
-    * The Enum EquivalentContentOption
+    * The Enum RecommendationFeatureAreas
     */
-    const NONE = "none";
-    const LATEST_SECURITY = "latestSecurity";
+    const USERS = "users";
+    const GROUPS = "groups";
+    const DEVICES = "devices";
+    const APPLICATIONS = "applications";
+    const ACCESS_REVIEWS = "accessReviews";
+    const CONDITIONAL_ACCESS = "conditionalAccess";
+    const GOVERNANCE = "governance";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

@@ -342,17 +342,17 @@
         },
         {
             "name": "microsoft/microsoft-graph",
-            "version": "1.86.0",
-            "version_normalized": "1.86.0.0",
+            "version": "1.88.0",
+            "version_normalized": "1.88.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/microsoftgraph/msgraph-sdk-php.git",
-                "reference": "9cfeb800243ec46e44d63d88264e08cd7b289500"
+                "reference": "143eb88f9663f21a2ba2986b6f3d945fa448aabd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/microsoftgraph/msgraph-sdk-php/zipball/9cfeb800243ec46e44d63d88264e08cd7b289500",
-                "reference": "9cfeb800243ec46e44d63d88264e08cd7b289500",
+                "url": "https://api.github.com/repos/microsoftgraph/msgraph-sdk-php/zipball/143eb88f9663f21a2ba2986b6f3d945fa448aabd",
+                "reference": "143eb88f9663f21a2ba2986b6f3d945fa448aabd",
                 "shasum": ""
             },
             "require": {
@@ -366,7 +366,7 @@
                 "phpstan/phpstan": "^0.12.90 || ^1.0.0",
                 "phpunit/phpunit": "^8.0 || ^9.0"
             },
-            "time": "2023-01-17T11:44:36+00:00",
+            "time": "2023-02-07T16:00:58+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -390,7 +390,7 @@
             "homepage": "https://developer.microsoft.com/en-us/graph",
             "support": {
                 "issues": "https://github.com/microsoftgraph/msgraph-sdk-php/issues",
-                "source": "https://github.com/microsoftgraph/msgraph-sdk-php/tree/1.86.0"
+                "source": "https://github.com/microsoftgraph/msgraph-sdk-php/tree/1.88.0"
             },
             "install-path": "../microsoft/microsoft-graph"
         },

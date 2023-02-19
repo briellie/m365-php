@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* RecommendationResource File
+* ImpactedResource File
 * PHP version 7
 *
 * @category  Library
@@ -14,7 +14,7 @@
 namespace Beta\Microsoft\Graph\Model;
 
 /**
-* RecommendationResource class
+* ImpactedResource class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -22,10 +22,11 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class RecommendationResource extends Entity
+class ImpactedResource extends Entity
 {
     /**
     * Gets the addedDateTime
+    * The date and time when the impactedResource object was initially associated with the recommendation.
     *
     * @return \DateTime|null The addedDateTime
     */
@@ -44,10 +45,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the addedDateTime
+    * The date and time when the impactedResource object was initially associated with the recommendation.
     *
     * @param \DateTime $val The addedDateTime
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setAddedDateTime($val)
     {
@@ -58,6 +60,7 @@ class RecommendationResource extends Entity
 
      /**
      * Gets the additionalDetails
+    * Additional information unique to the impactedResource to help contextualize the recommendation.
      *
      * @return array|null The additionalDetails
      */
@@ -72,10 +75,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the additionalDetails
+    * Additional information unique to the impactedResource to help contextualize the recommendation.
     *
     * @param KeyValue[] $val The additionalDetails
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setAdditionalDetails($val)
     {
@@ -85,6 +89,7 @@ class RecommendationResource extends Entity
 
     /**
     * Gets the apiUrl
+    * The URL link to the corresponding Azure AD resource.
     *
     * @return string|null The apiUrl
     */
@@ -99,10 +104,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the apiUrl
+    * The URL link to the corresponding Azure AD resource.
     *
     * @param string $val The apiUrl
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setApiUrl($val)
     {
@@ -112,6 +118,7 @@ class RecommendationResource extends Entity
 
     /**
     * Gets the displayName
+    * Friendly name of the Azure AD resource.
     *
     * @return string|null The displayName
     */
@@ -126,10 +133,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the displayName
+    * Friendly name of the Azure AD resource.
     *
     * @param string $val The displayName
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setDisplayName($val)
     {
@@ -138,7 +146,66 @@ class RecommendationResource extends Entity
     }
 
     /**
+    * Gets the lastModifiedBy
+    * Name of the user or service that last updated the status.
+    *
+    * @return string|null The lastModifiedBy
+    */
+    public function getLastModifiedBy()
+    {
+        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
+            return $this->_propDict["lastModifiedBy"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the lastModifiedBy
+    * Name of the user or service that last updated the status.
+    *
+    * @param string $val The lastModifiedBy
+    *
+    * @return ImpactedResource
+    */
+    public function setLastModifiedBy($val)
+    {
+        $this->_propDict["lastModifiedBy"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the lastModifiedDateTime
+    * The date and time when the status was last updated.
+    *
+    * @return string|null The lastModifiedDateTime
+    */
+    public function getLastModifiedDateTime()
+    {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
+            return $this->_propDict["lastModifiedDateTime"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the lastModifiedDateTime
+    * The date and time when the status was last updated.
+    *
+    * @param string $val The lastModifiedDateTime
+    *
+    * @return ImpactedResource
+    */
+    public function setLastModifiedDateTime($val)
+    {
+        $this->_propDict["lastModifiedDateTime"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the owner
+    * The user responsible for maintaining the resource.
     *
     * @return string|null The owner
     */
@@ -153,10 +220,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the owner
+    * The user responsible for maintaining the resource.
     *
     * @param string $val The owner
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setOwner($val)
     {
@@ -166,6 +234,7 @@ class RecommendationResource extends Entity
 
     /**
     * Gets the portalUrl
+    * The URL link to the corresponding Azure AD portal page of the resource.
     *
     * @return string|null The portalUrl
     */
@@ -180,10 +249,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the portalUrl
+    * The URL link to the corresponding Azure AD portal page of the resource.
     *
     * @param string $val The portalUrl
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setPortalUrl($val)
     {
@@ -192,7 +262,41 @@ class RecommendationResource extends Entity
     }
 
     /**
+    * Gets the postponeUntilDateTime
+    * The future date and time when the status of a postponed impactedResource will be active again.
+    *
+    * @return \DateTime|null The postponeUntilDateTime
+    */
+    public function getPostponeUntilDateTime()
+    {
+        if (array_key_exists("postponeUntilDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["postponeUntilDateTime"], "\DateTime") || is_null($this->_propDict["postponeUntilDateTime"])) {
+                return $this->_propDict["postponeUntilDateTime"];
+            } else {
+                $this->_propDict["postponeUntilDateTime"] = new \DateTime($this->_propDict["postponeUntilDateTime"]);
+                return $this->_propDict["postponeUntilDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the postponeUntilDateTime
+    * The future date and time when the status of a postponed impactedResource will be active again.
+    *
+    * @param \DateTime $val The postponeUntilDateTime
+    *
+    * @return ImpactedResource
+    */
+    public function setPostponeUntilDateTime($val)
+    {
+        $this->_propDict["postponeUntilDateTime"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the rank
+    * Indicates the importance of the resource. A resource with a rank equal to 1 is of the highest importance.
     *
     * @return int|null The rank
     */
@@ -207,10 +311,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the rank
+    * Indicates the importance of the resource. A resource with a rank equal to 1 is of the highest importance.
     *
     * @param int $val The rank
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setRank($val)
     {
@@ -220,6 +325,7 @@ class RecommendationResource extends Entity
 
     /**
     * Gets the recommendationId
+    * The unique identifier of the recommendation that the resource is associated with.
     *
     * @return string|null The recommendationId
     */
@@ -234,10 +340,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the recommendationId
+    * The unique identifier of the recommendation that the resource is associated with.
     *
     * @param string $val The recommendationId
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setRecommendationId($val)
     {
@@ -247,6 +354,7 @@ class RecommendationResource extends Entity
 
     /**
     * Gets the resourceType
+    * Indicates the type of Azure AD resource. Examples include user, application.
     *
     * @return string|null The resourceType
     */
@@ -261,10 +369,11 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the resourceType
+    * Indicates the type of Azure AD resource. Examples include user, application.
     *
     * @param string $val The resourceType
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setResourceType($val)
     {
@@ -274,6 +383,7 @@ class RecommendationResource extends Entity
 
     /**
     * Gets the status
+    * Indicates whether a resource needs to be addressed. The possible values are: active, completedBySystem, completedByUser, dismissed, postponed, unknownFutureValue. By default, a recommendation's status is set to active when the recommendation is first generated. Status is set to completedBySystem when our service detects that a resource which was once active no longer applies.
     *
     * @return RecommendationStatus|null The status
     */
@@ -292,14 +402,44 @@ class RecommendationResource extends Entity
 
     /**
     * Sets the status
+    * Indicates whether a resource needs to be addressed. The possible values are: active, completedBySystem, completedByUser, dismissed, postponed, unknownFutureValue. By default, a recommendation's status is set to active when the recommendation is first generated. Status is set to completedBySystem when our service detects that a resource which was once active no longer applies.
     *
     * @param RecommendationStatus $val The status
     *
-    * @return RecommendationResource
+    * @return ImpactedResource
     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the subjectId
+    * The related unique identifier, depending on the resourceType. For example, this property is set to the applicationId if the resourceType is an application.
+    *
+    * @return string|null The subjectId
+    */
+    public function getSubjectId()
+    {
+        if (array_key_exists("subjectId", $this->_propDict)) {
+            return $this->_propDict["subjectId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the subjectId
+    * The related unique identifier, depending on the resourceType. For example, this property is set to the applicationId if the resourceType is an application.
+    *
+    * @param string $val The subjectId
+    *
+    * @return ImpactedResource
+    */
+    public function setSubjectId($val)
+    {
+        $this->_propDict["subjectId"] = $val;
         return $this;
     }
 
