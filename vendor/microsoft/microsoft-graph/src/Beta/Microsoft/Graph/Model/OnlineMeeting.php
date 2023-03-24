@@ -116,7 +116,41 @@ class OnlineMeeting extends Entity
     }
 
     /**
+    * Gets the allowMeetingChat
+    * Specifies the mode of meeting chat.
+    *
+    * @return MeetingChatMode|null The allowMeetingChat
+    */
+    public function getAllowMeetingChat()
+    {
+        if (array_key_exists("allowMeetingChat", $this->_propDict)) {
+            if (is_a($this->_propDict["allowMeetingChat"], "\Beta\Microsoft\Graph\Model\MeetingChatMode") || is_null($this->_propDict["allowMeetingChat"])) {
+                return $this->_propDict["allowMeetingChat"];
+            } else {
+                $this->_propDict["allowMeetingChat"] = new MeetingChatMode($this->_propDict["allowMeetingChat"]);
+                return $this->_propDict["allowMeetingChat"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the allowMeetingChat
+    * Specifies the mode of meeting chat.
+    *
+    * @param MeetingChatMode $val The allowMeetingChat
+    *
+    * @return OnlineMeeting
+    */
+    public function setAllowMeetingChat($val)
+    {
+        $this->_propDict["allowMeetingChat"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the allowParticipantsToChangeName
+    * Specifies if participants are allowed to rename themselves in an instance of the meeting.
     *
     * @return bool|null The allowParticipantsToChangeName
     */
@@ -131,6 +165,7 @@ class OnlineMeeting extends Entity
 
     /**
     * Sets the allowParticipantsToChangeName
+    * Specifies if participants are allowed to rename themselves in an instance of the meeting.
     *
     * @param bool $val The allowParticipantsToChangeName
     *
