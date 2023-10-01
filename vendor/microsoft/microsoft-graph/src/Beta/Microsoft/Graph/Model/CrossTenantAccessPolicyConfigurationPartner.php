@@ -254,6 +254,35 @@ class CrossTenantAccessPolicyConfigurationPartner implements \JsonSerializable
     }
 
     /**
+    * Gets the isInMultiTenantOrganization
+    * Identifies whether a tenant is a member of a multi-tenant organization.
+    *
+    * @return bool|null The isInMultiTenantOrganization
+    */
+    public function getIsInMultiTenantOrganization()
+    {
+        if (array_key_exists("isInMultiTenantOrganization", $this->_propDict)) {
+            return $this->_propDict["isInMultiTenantOrganization"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isInMultiTenantOrganization
+    * Identifies whether a tenant is a member of a multi-tenant organization.
+    *
+    * @param bool $val The isInMultiTenantOrganization
+    *
+    * @return CrossTenantAccessPolicyConfigurationPartner
+    */
+    public function setIsInMultiTenantOrganization($val)
+    {
+        $this->_propDict["isInMultiTenantOrganization"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the isServiceProvider
     * Identifies whether the partner-specific configuration is a Cloud Service Provider for your organization.
     *

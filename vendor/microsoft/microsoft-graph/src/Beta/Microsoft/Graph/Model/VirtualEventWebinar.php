@@ -60,7 +60,7 @@ class VirtualEventWebinar extends VirtualEvent
 
      /**
      * Gets the coOrganizers
-    * Identity information of co-organizers of the webinar.
+    * Identity information of coorganizers of the webinar.
      *
      * @return array|null The coOrganizers
      */
@@ -75,7 +75,7 @@ class VirtualEventWebinar extends VirtualEvent
 
     /**
     * Sets the coOrganizers
-    * Identity information of co-organizers of the webinar.
+    * Identity information of coorganizers of the webinar.
     *
     * @param CommunicationsUserIdentity[] $val The coOrganizers
     *
@@ -88,35 +88,65 @@ class VirtualEventWebinar extends VirtualEvent
     }
 
     /**
-    * Gets the registration
+    * Gets the registrationConfiguration
     * Registration configuration of the webinar.
     *
-    * @return VirtualEventRegistration|null The registration
+    * @return VirtualEventRegistrationConfiguration|null The registrationConfiguration
     */
-    public function getRegistration()
+    public function getRegistrationConfiguration()
     {
-        if (array_key_exists("registration", $this->_propDict)) {
-            if (is_a($this->_propDict["registration"], "\Beta\Microsoft\Graph\Model\VirtualEventRegistration") || is_null($this->_propDict["registration"])) {
-                return $this->_propDict["registration"];
+        if (array_key_exists("registrationConfiguration", $this->_propDict)) {
+            if (is_a($this->_propDict["registrationConfiguration"], "\Beta\Microsoft\Graph\Model\VirtualEventRegistrationConfiguration") || is_null($this->_propDict["registrationConfiguration"])) {
+                return $this->_propDict["registrationConfiguration"];
             } else {
-                $this->_propDict["registration"] = new VirtualEventRegistration($this->_propDict["registration"]);
-                return $this->_propDict["registration"];
+                $this->_propDict["registrationConfiguration"] = new VirtualEventRegistrationConfiguration($this->_propDict["registrationConfiguration"]);
+                return $this->_propDict["registrationConfiguration"];
             }
         }
         return null;
     }
 
     /**
-    * Sets the registration
+    * Sets the registrationConfiguration
     * Registration configuration of the webinar.
     *
-    * @param VirtualEventRegistration $val The registration
+    * @param VirtualEventRegistrationConfiguration $val The registrationConfiguration
     *
     * @return VirtualEventWebinar
     */
-    public function setRegistration($val)
+    public function setRegistrationConfiguration($val)
     {
-        $this->_propDict["registration"] = $val;
+        $this->_propDict["registrationConfiguration"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the registrations
+    * Registration records of the webinar.
+     *
+     * @return array|null The registrations
+     */
+    public function getRegistrations()
+    {
+        if (array_key_exists("registrations", $this->_propDict)) {
+           return $this->_propDict["registrations"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the registrations
+    * Registration records of the webinar.
+    *
+    * @param VirtualEventRegistration[] $val The registrations
+    *
+    * @return VirtualEventWebinar
+    */
+    public function setRegistrations($val)
+    {
+        $this->_propDict["registrations"] = $val;
         return $this;
     }
 

@@ -179,6 +179,33 @@ class Incident extends \Microsoft\Graph\Model\Entity
     }
 
     /**
+    * Gets the description
+    *
+    * @return string|null The description
+    */
+    public function getDescription()
+    {
+        if (array_key_exists("description", $this->_propDict)) {
+            return $this->_propDict["description"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the description
+    *
+    * @param string $val The description
+    *
+    * @return Incident
+    */
+    public function setDescription($val)
+    {
+        $this->_propDict["description"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the determination
     * Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
     *
@@ -266,6 +293,33 @@ class Incident extends \Microsoft\Graph\Model\Entity
     public function setIncidentWebUrl($val)
     {
         $this->_propDict["incidentWebUrl"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the lastModifiedBy
+    *
+    * @return string|null The lastModifiedBy
+    */
+    public function getLastModifiedBy()
+    {
+        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
+            return $this->_propDict["lastModifiedBy"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the lastModifiedBy
+    *
+    * @param string $val The lastModifiedBy
+    *
+    * @return Incident
+    */
+    public function setLastModifiedBy($val)
+    {
+        $this->_propDict["lastModifiedBy"] = $val;
         return $this;
     }
 
@@ -366,7 +420,7 @@ class Incident extends \Microsoft\Graph\Model\Entity
 
     /**
     * Gets the status
-    * The status of the incident. Possible values are: active, resolved, inProgress, redirected, unknownFutureValue.
+    * The status of the incident. Possible values are: active, resolved, inProgress, redirected, unknownFutureValue, and awaitingAction.
     *
     * @return IncidentStatus|null The status
     */
@@ -385,7 +439,7 @@ class Incident extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the status
-    * The status of the incident. Possible values are: active, resolved, inProgress, redirected, unknownFutureValue.
+    * The status of the incident. Possible values are: active, resolved, inProgress, redirected, unknownFutureValue, and awaitingAction.
     *
     * @param IncidentStatus $val The status
     *
@@ -394,6 +448,33 @@ class Incident extends \Microsoft\Graph\Model\Entity
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the systemTags
+    *
+    * @return array|null The systemTags
+    */
+    public function getSystemTags()
+    {
+        if (array_key_exists("systemTags", $this->_propDict)) {
+            return $this->_propDict["systemTags"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the systemTags
+    *
+    * @param string[] $val The systemTags
+    *
+    * @return Incident
+    */
+    public function setSystemTags($val)
+    {
+        $this->_propDict["systemTags"] = $val;
         return $this;
     }
 

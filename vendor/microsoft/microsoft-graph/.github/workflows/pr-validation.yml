@@ -5,11 +5,9 @@ name: "Validate Pull Request"
 
 on:
   push:
-    branches: [ main, dev, feat/kiota-preview ]
+    branches: [ main, dev ]
   pull_request:
-    branches: [ main, dev, feat/kiota-preview ]
-    # Add assigned to defaults as a hack to easily trigger code-gen PRs to run validation
-    types: [assigned, opened, synchronize, reopened]
+    branches: [ main, dev ]
 
 defaults:
   run:
@@ -19,7 +17,7 @@ jobs:
   validate-pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Validate composer file
       run: |
         composer validate

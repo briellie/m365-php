@@ -26,7 +26,7 @@ class SignIn extends Entity
 {
     /**
     * Gets the appDisplayName
-    * The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).
+    * The application name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).
     *
     * @return string|null The appDisplayName
     */
@@ -41,7 +41,7 @@ class SignIn extends Entity
 
     /**
     * Sets the appDisplayName
-    * The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).
+    * The application name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).
     *
     * @param string $val The appDisplayName
     *
@@ -55,7 +55,7 @@ class SignIn extends Entity
 
     /**
     * Gets the appId
-    * The application identifier in Azure Active Directory. Supports $filter (eq operator only).
+    * The application identifier in Azure Active Directory.  Supports $filter (eq).
     *
     * @return string|null The appId
     */
@@ -70,7 +70,7 @@ class SignIn extends Entity
 
     /**
     * Sets the appId
-    * The application identifier in Azure Active Directory. Supports $filter (eq operator only).
+    * The application identifier in Azure Active Directory.  Supports $filter (eq).
     *
     * @param string $val The appId
     *
@@ -139,6 +139,37 @@ class SignIn extends Entity
     public function setAppliedEventListeners($val)
     {
         $this->_propDict["appliedEventListeners"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the appTokenProtectionStatus
+    *
+    * @return TokenProtectionStatus|null The appTokenProtectionStatus
+    */
+    public function getAppTokenProtectionStatus()
+    {
+        if (array_key_exists("appTokenProtectionStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["appTokenProtectionStatus"], "\Beta\Microsoft\Graph\Model\TokenProtectionStatus") || is_null($this->_propDict["appTokenProtectionStatus"])) {
+                return $this->_propDict["appTokenProtectionStatus"];
+            } else {
+                $this->_propDict["appTokenProtectionStatus"] = new TokenProtectionStatus($this->_propDict["appTokenProtectionStatus"]);
+                return $this->_propDict["appTokenProtectionStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the appTokenProtectionStatus
+    *
+    * @param TokenProtectionStatus $val The appTokenProtectionStatus
+    *
+    * @return SignIn
+    */
+    public function setAppTokenProtectionStatus($val)
+    {
+        $this->_propDict["appTokenProtectionStatus"] = $val;
         return $this;
     }
 
@@ -238,7 +269,7 @@ class SignIn extends Entity
 
      /**
      * Gets the authenticationDetails
-    * The result of the authentication attempt and additional details on the authentication method.
+    * The result of the authentication attempt and more details on the authentication method.
      *
      * @return array|null The authenticationDetails
      */
@@ -253,7 +284,7 @@ class SignIn extends Entity
 
     /**
     * Sets the authenticationDetails
-    * The result of the authentication attempt and additional details on the authentication method.
+    * The result of the authentication attempt and more details on the authentication method.
     *
     * @param AuthenticationDetail[] $val The authenticationDetails
     *
@@ -297,7 +328,7 @@ class SignIn extends Entity
 
      /**
      * Gets the authenticationProcessingDetails
-    * Additional authentication processing details, such as the agent name in case of PTA/PHS or Server/farm name in case of federated authentication.
+    * Extra authentication processing details, such as the agent name for PTA/PHS or Server/farm name for federated authentication.
      *
      * @return array|null The authenticationProcessingDetails
      */
@@ -312,7 +343,7 @@ class SignIn extends Entity
 
     /**
     * Sets the authenticationProcessingDetails
-    * Additional authentication processing details, such as the agent name in case of PTA/PHS or Server/farm name in case of federated authentication.
+    * Extra authentication processing details, such as the agent name for PTA/PHS or Server/farm name for federated authentication.
     *
     * @param KeyValue[] $val The authenticationProcessingDetails
     *
@@ -359,7 +390,7 @@ class SignIn extends Entity
 
     /**
     * Gets the authenticationRequirement
-    * This holds the highest level of authentication needed through all the sign-in steps, for sign-in to succeed. Supports $filter (eq and startsWith operators only).
+    * This holds the highest level of authentication needed through all the sign-in steps, for sign-in to succeed.  Supports $filter (eq, startsWith).
     *
     * @return string|null The authenticationRequirement
     */
@@ -374,7 +405,7 @@ class SignIn extends Entity
 
     /**
     * Sets the authenticationRequirement
-    * This holds the highest level of authentication needed through all the sign-in steps, for sign-in to succeed. Supports $filter (eq and startsWith operators only).
+    * This holds the highest level of authentication needed through all the sign-in steps, for sign-in to succeed.  Supports $filter (eq, startsWith).
     *
     * @param string $val The authenticationRequirement
     *
@@ -476,7 +507,7 @@ class SignIn extends Entity
 
     /**
     * Gets the clientAppUsed
-    * The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP. Supports $filter (eq operator only).
+    * The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP.  Supports $filter (eq).
     *
     * @return string|null The clientAppUsed
     */
@@ -491,7 +522,7 @@ class SignIn extends Entity
 
     /**
     * Sets the clientAppUsed
-    * The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP. Supports $filter (eq operator only).
+    * The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP.  Supports $filter (eq).
     *
     * @param string $val The clientAppUsed
     *
@@ -538,7 +569,7 @@ class SignIn extends Entity
 
     /**
     * Gets the conditionalAccessStatus
-    * The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue. Supports $filter (eq operator only).
+    * The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).
     *
     * @return ConditionalAccessStatus|null The conditionalAccessStatus
     */
@@ -557,7 +588,7 @@ class SignIn extends Entity
 
     /**
     * Sets the conditionalAccessStatus
-    * The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue. Supports $filter (eq operator only).
+    * The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).
     *
     * @param ConditionalAccessStatus $val The conditionalAccessStatus
     *
@@ -571,7 +602,7 @@ class SignIn extends Entity
 
     /**
     * Gets the correlationId
-    * The identifier that's sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support. Supports $filter (eq operator only).
+    * The identifier that's sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).
     *
     * @return string|null The correlationId
     */
@@ -586,7 +617,7 @@ class SignIn extends Entity
 
     /**
     * Sets the correlationId
-    * The identifier that's sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support. Supports $filter (eq operator only).
+    * The identifier that's sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).
     *
     * @param string $val The correlationId
     *
@@ -600,7 +631,7 @@ class SignIn extends Entity
 
     /**
     * Gets the createdDateTime
-    * The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $orderby and $filter (eq, le, and ge operators only).
+    * The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $orderby, $filter (eq, le, and ge).
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -619,7 +650,7 @@ class SignIn extends Entity
 
     /**
     * Sets the createdDateTime
-    * The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $orderby and $filter (eq, le, and ge operators only).
+    * The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $orderby, $filter (eq, le, and ge).
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -633,7 +664,7 @@ class SignIn extends Entity
 
     /**
     * Gets the crossTenantAccessType
-    * Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue. If the sign in did not cross tenant boundaries, the value is none.
+    * Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue. If the sign in didn't cross tenant boundaries, the value is none.
     *
     * @return SignInAccessType|null The crossTenantAccessType
     */
@@ -652,7 +683,7 @@ class SignIn extends Entity
 
     /**
     * Sets the crossTenantAccessType
-    * Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue. If the sign in did not cross tenant boundaries, the value is none.
+    * Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue. If the sign in didn't cross tenant boundaries, the value is none.
     *
     * @param SignInAccessType $val The crossTenantAccessType
     *
@@ -666,7 +697,7 @@ class SignIn extends Entity
 
     /**
     * Gets the deviceDetail
-    * The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSystem properties.
+    * The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser.  Supports $filter (eq, startsWith) on browser and operatingSystem properties.
     *
     * @return DeviceDetail|null The deviceDetail
     */
@@ -685,7 +716,7 @@ class SignIn extends Entity
 
     /**
     * Sets the deviceDetail
-    * The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSystem properties.
+    * The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser.  Supports $filter (eq, startsWith) on browser and operatingSystem properties.
     *
     * @param DeviceDetail $val The deviceDetail
     *
@@ -728,7 +759,7 @@ class SignIn extends Entity
 
     /**
     * Gets the flaggedForReview
-    * During a failed sign in, a user may click a button in the Azure portal to mark the failed event for tenant admins. If a user clicked the button to flag the failed sign in, this value is true.
+    * During a failed sign in, a user may select a button in the Azure portal to mark the failed event for tenant admins. If a user clicked the button to flag the failed sign in, this value is true.
     *
     * @return bool|null The flaggedForReview
     */
@@ -743,7 +774,7 @@ class SignIn extends Entity
 
     /**
     * Sets the flaggedForReview
-    * During a failed sign in, a user may click a button in the Azure portal to mark the failed event for tenant admins. If a user clicked the button to flag the failed sign in, this value is true.
+    * During a failed sign in, a user may select a button in the Azure portal to mark the failed event for tenant admins. If a user clicked the button to flag the failed sign in, this value is true.
     *
     * @param bool $val The flaggedForReview
     *
@@ -815,7 +846,7 @@ class SignIn extends Entity
 
     /**
     * Gets the incomingTokenType
-    * Indicates the token types that were presented to Azure AD to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Azure AD may have also used token types not listed in this Enum type to authenticate the actor. Do not infer the lack of a token if it is not one of the types listed. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: remoteDesktopToken.
+    * Indicates the token types that were presented to Azure AD to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Azure AD may have also used token types not listed in this Enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: remoteDesktopToken.
     *
     * @return IncomingTokenType|null The incomingTokenType
     */
@@ -834,7 +865,7 @@ class SignIn extends Entity
 
     /**
     * Sets the incomingTokenType
-    * Indicates the token types that were presented to Azure AD to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Azure AD may have also used token types not listed in this Enum type to authenticate the actor. Do not infer the lack of a token if it is not one of the types listed. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: remoteDesktopToken.
+    * Indicates the token types that were presented to Azure AD to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Azure AD may have also used token types not listed in this Enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, please note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: remoteDesktopToken.
     *
     * @param IncomingTokenType $val The incomingTokenType
     *
@@ -848,7 +879,7 @@ class SignIn extends Entity
 
     /**
     * Gets the ipAddress
-    * The IP address of the client from where the sign-in occurred. Supports $filter (eq and startsWith operators only).
+    * The IP address of the client from where the sign-in occurred.  Supports $filter (eq, startsWith).
     *
     * @return string|null The ipAddress
     */
@@ -863,7 +894,7 @@ class SignIn extends Entity
 
     /**
     * Sets the ipAddress
-    * The IP address of the client from where the sign-in occurred. Supports $filter (eq and startsWith operators only).
+    * The IP address of the client from where the sign-in occurred.  Supports $filter (eq, startsWith).
     *
     * @param string $val The ipAddress
     *
@@ -964,7 +995,7 @@ class SignIn extends Entity
 
     /**
     * Gets the location
-    * The city, state, and 2 letter country code from where the sign-in occurred. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties.
+    * The city, state, and two letter country code from where the sign-in occurred.  Supports $filter (eq, startsWith) on city, state, and countryOrRegion properties.
     *
     * @return SignInLocation|null The location
     */
@@ -983,7 +1014,7 @@ class SignIn extends Entity
 
     /**
     * Sets the location
-    * The city, state, and 2 letter country code from where the sign-in occurred. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties.
+    * The city, state, and two letter country code from where the sign-in occurred.  Supports $filter (eq, startsWith) on city, state, and countryOrRegion properties.
     *
     * @param SignInLocation $val The location
     *
@@ -997,7 +1028,7 @@ class SignIn extends Entity
 
     /**
     * Gets the managedServiceIdentity
-    * Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+    * Contains information about the managed identity used for the sign in, including its type, associated Azure Resource Manager (ARM) resource ID, and federated token information.
     *
     * @return ManagedIdentity|null The managedServiceIdentity
     */
@@ -1016,7 +1047,7 @@ class SignIn extends Entity
 
     /**
     * Sets the managedServiceIdentity
-    * Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+    * Contains information about the managed identity used for the sign in, including its type, associated Azure Resource Manager (ARM) resource ID, and federated token information.
     *
     * @param ManagedIdentity $val The managedServiceIdentity
     *
@@ -1091,7 +1122,7 @@ class SignIn extends Entity
 
     /**
     * Gets the originalRequestId
-    * The request identifier of the first request in the authentication sequence. Supports $filter (eq operator only).
+    * The request identifier of the first request in the authentication sequence.  Supports $filter (eq).
     *
     * @return string|null The originalRequestId
     */
@@ -1106,7 +1137,7 @@ class SignIn extends Entity
 
     /**
     * Sets the originalRequestId
-    * The request identifier of the first request in the authentication sequence. Supports $filter (eq operator only).
+    * The request identifier of the first request in the authentication sequence.  Supports $filter (eq).
     *
     * @param string $val The originalRequestId
     *
@@ -1115,6 +1146,39 @@ class SignIn extends Entity
     public function setOriginalRequestId($val)
     {
         $this->_propDict["originalRequestId"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the originalTransferMethod
+    * Transfer method used to initiate a session throughout all subsequent request. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
+    *
+    * @return OriginalTransferMethods|null The originalTransferMethod
+    */
+    public function getOriginalTransferMethod()
+    {
+        if (array_key_exists("originalTransferMethod", $this->_propDict)) {
+            if (is_a($this->_propDict["originalTransferMethod"], "\Beta\Microsoft\Graph\Model\OriginalTransferMethods") || is_null($this->_propDict["originalTransferMethod"])) {
+                return $this->_propDict["originalTransferMethod"];
+            } else {
+                $this->_propDict["originalTransferMethod"] = new OriginalTransferMethods($this->_propDict["originalTransferMethod"]);
+                return $this->_propDict["originalTransferMethod"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the originalTransferMethod
+    * Transfer method used to initiate a session throughout all subsequent request. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.
+    *
+    * @param OriginalTransferMethods $val The originalTransferMethod
+    *
+    * @return SignIn
+    */
+    public function setOriginalTransferMethod($val)
+    {
+        $this->_propDict["originalTransferMethod"] = $val;
         return $this;
     }
 
@@ -1182,7 +1246,7 @@ class SignIn extends Entity
 
     /**
     * Gets the resourceDisplayName
-    * The name of the resource that the user signed in to. Supports $filter (eq operator only).
+    * The name of the resource that the user signed in to.  Supports $filter (eq).
     *
     * @return string|null The resourceDisplayName
     */
@@ -1197,7 +1261,7 @@ class SignIn extends Entity
 
     /**
     * Sets the resourceDisplayName
-    * The name of the resource that the user signed in to. Supports $filter (eq operator only).
+    * The name of the resource that the user signed in to.  Supports $filter (eq).
     *
     * @param string $val The resourceDisplayName
     *
@@ -1211,7 +1275,7 @@ class SignIn extends Entity
 
     /**
     * Gets the resourceId
-    * The identifier of the resource that the user signed in to. Supports $filter (eq operator only).
+    * The identifier of the resource that the user signed in to.  Supports $filter (eq).
     *
     * @return string|null The resourceId
     */
@@ -1226,7 +1290,7 @@ class SignIn extends Entity
 
     /**
     * Sets the resourceId
-    * The identifier of the resource that the user signed in to. Supports $filter (eq operator only).
+    * The identifier of the resource that the user signed in to.  Supports $filter (eq).
     *
     * @param string $val The resourceId
     *
@@ -1298,7 +1362,7 @@ class SignIn extends Entity
 
     /**
     * Gets the riskDetail
-    * The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
+    * The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far.  Supports $filter (eq). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
     *
     * @return RiskDetail|null The riskDetail
     */
@@ -1317,7 +1381,7 @@ class SignIn extends Entity
 
     /**
     * Sets the riskDetail
-    * The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
+    * The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far.  Supports $filter (eq). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
     *
     * @param RiskDetail $val The riskDetail
     *
@@ -1331,7 +1395,7 @@ class SignIn extends Entity
 
     /**
     * Gets the riskEventTypesV2
-    * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
+    * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.  Supports $filter (eq, startsWith).
     *
     * @return array|null The riskEventTypesV2
     */
@@ -1346,7 +1410,7 @@ class SignIn extends Entity
 
     /**
     * Sets the riskEventTypesV2
-    * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
+    * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.  Supports $filter (eq, startsWith).
     *
     * @param string[] $val The riskEventTypesV2
     *
@@ -1360,7 +1424,7 @@ class SignIn extends Entity
 
     /**
     * Gets the riskLevelAggregated
-    * The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
+    * The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection.  Supports $filter (eq). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
     *
     * @return RiskLevel|null The riskLevelAggregated
     */
@@ -1379,7 +1443,7 @@ class SignIn extends Entity
 
     /**
     * Sets the riskLevelAggregated
-    * The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
+    * The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection.  Supports $filter (eq). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
     *
     * @param RiskLevel $val The riskLevelAggregated
     *
@@ -1393,7 +1457,7 @@ class SignIn extends Entity
 
     /**
     * Gets the riskLevelDuringSignIn
-    * The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
+    * The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Azure AD Identity Protection.  Supports $filter (eq). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
     *
     * @return RiskLevel|null The riskLevelDuringSignIn
     */
@@ -1412,7 +1476,7 @@ class SignIn extends Entity
 
     /**
     * Sets the riskLevelDuringSignIn
-    * The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
+    * The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Azure AD Identity Protection.  Supports $filter (eq). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
     *
     * @param RiskLevel $val The riskLevelDuringSignIn
     *
@@ -1426,7 +1490,7 @@ class SignIn extends Entity
 
     /**
     * Gets the riskState
-    * The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue. Supports $filter (eq operator only).
+    * The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue.  Supports $filter (eq).
     *
     * @return RiskState|null The riskState
     */
@@ -1445,7 +1509,7 @@ class SignIn extends Entity
 
     /**
     * Sets the riskState
-    * The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue. Supports $filter (eq operator only).
+    * The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue.  Supports $filter (eq).
     *
     * @param RiskState $val The riskState
     *
@@ -1517,7 +1581,7 @@ class SignIn extends Entity
 
     /**
     * Gets the servicePrincipalId
-    * The application identifier used for sign-in. This field is populated when you are signing in using an application. Supports $filter (eq and startsWith operators only).
+    * The application identifier used for sign-in. This field is populated when you're signing in using an application.  Supports $filter (eq, startsWith).
     *
     * @return string|null The servicePrincipalId
     */
@@ -1532,7 +1596,7 @@ class SignIn extends Entity
 
     /**
     * Sets the servicePrincipalId
-    * The application identifier used for sign-in. This field is populated when you are signing in using an application. Supports $filter (eq and startsWith operators only).
+    * The application identifier used for sign-in. This field is populated when you're signing in using an application.  Supports $filter (eq, startsWith).
     *
     * @param string $val The servicePrincipalId
     *
@@ -1546,7 +1610,7 @@ class SignIn extends Entity
 
     /**
     * Gets the servicePrincipalName
-    * The application name used for sign-in. This field is populated when you are signing in using an application. Supports $filter (eq and startsWith operators only).
+    * The application name used for sign-in. This field is populated when you're signing in using an application.  Supports $filter (eq, startsWith).
     *
     * @return string|null The servicePrincipalName
     */
@@ -1561,7 +1625,7 @@ class SignIn extends Entity
 
     /**
     * Sets the servicePrincipalName
-    * The application name used for sign-in. This field is populated when you are signing in using an application. Supports $filter (eq and startsWith operators only).
+    * The application name used for sign-in. This field is populated when you're signing in using an application.  Supports $filter (eq, startsWith).
     *
     * @param string $val The servicePrincipalName
     *
@@ -1605,7 +1669,7 @@ class SignIn extends Entity
 
     /**
     * Gets the signInEventTypes
-    * Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue. Supports $filter (eq, ne).
+    * Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne).
     *
     * @return array|null The signInEventTypes
     */
@@ -1620,7 +1684,7 @@ class SignIn extends Entity
 
     /**
     * Sets the signInEventTypes
-    * Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue. Supports $filter (eq, ne).
+    * Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne).
     *
     * @param string[] $val The signInEventTypes
     *
@@ -1695,8 +1759,41 @@ class SignIn extends Entity
     }
 
     /**
+    * Gets the signInTokenProtectionStatus
+    * Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
+    *
+    * @return TokenProtectionStatus|null The signInTokenProtectionStatus
+    */
+    public function getSignInTokenProtectionStatus()
+    {
+        if (array_key_exists("signInTokenProtectionStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["signInTokenProtectionStatus"], "\Beta\Microsoft\Graph\Model\TokenProtectionStatus") || is_null($this->_propDict["signInTokenProtectionStatus"])) {
+                return $this->_propDict["signInTokenProtectionStatus"];
+            } else {
+                $this->_propDict["signInTokenProtectionStatus"] = new TokenProtectionStatus($this->_propDict["signInTokenProtectionStatus"]);
+                return $this->_propDict["signInTokenProtectionStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the signInTokenProtectionStatus
+    * Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
+    *
+    * @param TokenProtectionStatus $val The signInTokenProtectionStatus
+    *
+    * @return SignIn
+    */
+    public function setSignInTokenProtectionStatus($val)
+    {
+        $this->_propDict["signInTokenProtectionStatus"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the status
-    * The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.
+    * The sign-in status. Includes the error code and description of the error (for a sign-in failure).  Supports $filter (eq) on errorCode property.
     *
     * @return SignInStatus|null The status
     */
@@ -1715,7 +1812,7 @@ class SignIn extends Entity
 
     /**
     * Sets the status
-    * The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.
+    * The sign-in status. Includes the error code and description of the error (for a sign-in failure).  Supports $filter (eq) on errorCode property.
     *
     * @param SignInStatus $val The status
     *
@@ -1729,7 +1826,7 @@ class SignIn extends Entity
 
     /**
     * Gets the tokenIssuerName
-    * The name of the identity provider. For example, sts.microsoft.com. Supports $filter (eq operator only).
+    * The name of the identity provider. For example, sts.microsoft.com.  Supports $filter (eq).
     *
     * @return string|null The tokenIssuerName
     */
@@ -1744,7 +1841,7 @@ class SignIn extends Entity
 
     /**
     * Sets the tokenIssuerName
-    * The name of the identity provider. For example, sts.microsoft.com. Supports $filter (eq operator only).
+    * The name of the identity provider. For example, sts.microsoft.com.  Supports $filter (eq).
     *
     * @param string $val The tokenIssuerName
     *
@@ -1758,7 +1855,7 @@ class SignIn extends Entity
 
     /**
     * Gets the tokenIssuerType
-    * The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
+    * The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
     *
     * @return TokenIssuerType|null The tokenIssuerType
     */
@@ -1777,7 +1874,7 @@ class SignIn extends Entity
 
     /**
     * Sets the tokenIssuerType
-    * The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
+    * The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.
     *
     * @param TokenIssuerType $val The tokenIssuerType
     *
@@ -1791,7 +1888,7 @@ class SignIn extends Entity
 
     /**
     * Gets the uniqueTokenIdentifier
-    * A unique base64 encoded request identifier used to track tokens issued by Azure AD as they are redeemed at resource providers.
+    * A unique base64 encoded request identifier used to track tokens issued by Azure AD as they're redeemed at resource providers.
     *
     * @return string|null The uniqueTokenIdentifier
     */
@@ -1806,7 +1903,7 @@ class SignIn extends Entity
 
     /**
     * Sets the uniqueTokenIdentifier
-    * A unique base64 encoded request identifier used to track tokens issued by Azure AD as they are redeemed at resource providers.
+    * A unique base64 encoded request identifier used to track tokens issued by Azure AD as they're redeemed at resource providers.
     *
     * @param string $val The uniqueTokenIdentifier
     *
@@ -1820,7 +1917,7 @@ class SignIn extends Entity
 
     /**
     * Gets the userAgent
-    * The user agent information related to sign-in. Supports $filter (eq and startsWith operators only).
+    * The user agent information related to sign-in.  Supports $filter (eq, startsWith).
     *
     * @return string|null The userAgent
     */
@@ -1835,7 +1932,7 @@ class SignIn extends Entity
 
     /**
     * Sets the userAgent
-    * The user agent information related to sign-in. Supports $filter (eq and startsWith operators only).
+    * The user agent information related to sign-in.  Supports $filter (eq, startsWith).
     *
     * @param string $val The userAgent
     *
@@ -1849,7 +1946,7 @@ class SignIn extends Entity
 
     /**
     * Gets the userDisplayName
-    * The display name of the user. Supports $filter (eq and startsWith operators only).
+    * The display name of the user.  Supports $filter (eq, startsWith).
     *
     * @return string|null The userDisplayName
     */
@@ -1864,7 +1961,7 @@ class SignIn extends Entity
 
     /**
     * Sets the userDisplayName
-    * The display name of the user. Supports $filter (eq and startsWith operators only).
+    * The display name of the user.  Supports $filter (eq, startsWith).
     *
     * @param string $val The userDisplayName
     *
@@ -1878,7 +1975,7 @@ class SignIn extends Entity
 
     /**
     * Gets the userId
-    * The identifier of the user. Supports $filter (eq operator only).
+    * The identifier of the user.  Supports $filter (eq).
     *
     * @return string|null The userId
     */
@@ -1893,7 +1990,7 @@ class SignIn extends Entity
 
     /**
     * Sets the userId
-    * The identifier of the user. Supports $filter (eq operator only).
+    * The identifier of the user.  Supports $filter (eq).
     *
     * @param string $val The userId
     *
@@ -1907,7 +2004,7 @@ class SignIn extends Entity
 
     /**
     * Gets the userPrincipalName
-    * The UPN of the user. Supports $filter (eq and startsWith operators only).
+    * The UPN of the user.  Supports $filter (eq, startsWith).
     *
     * @return string|null The userPrincipalName
     */
@@ -1922,7 +2019,7 @@ class SignIn extends Entity
 
     /**
     * Sets the userPrincipalName
-    * The UPN of the user. Supports $filter (eq and startsWith operators only).
+    * The UPN of the user.  Supports $filter (eq, startsWith).
     *
     * @param string $val The userPrincipalName
     *
